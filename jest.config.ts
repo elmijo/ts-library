@@ -21,13 +21,11 @@ export default {
   moduleFileExtensions: ["js", "json", "ts"],
   transform: {
     ...tsjPreset.transform,
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      { disableSourceMapSupport: true, tsconfig: "<rootDir>/tsconfig.json" },
+    ],
   },
   transformIgnorePatterns: ["/node_modules/"],
   modulePathIgnorePatterns: ["fixtures"],
-  globals: {
-    "ts-jest": {
-      disableSourceMapSupport: true,
-      tsconfig: "<rootDir>/tsconfig.json",
-    },
-  },
 } as Config.InitialOptions
